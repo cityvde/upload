@@ -1,5 +1,5 @@
 <?php
-$file = fopen("/srv/www/avocatcampusinternational/accueil-test/tuto/paiement/retour.log", "a");
+$file = fopen("/tuto/paiement/retour.log", "a");
 fwrite($file,"Debut ipn.php"."\r\n");
 fclose($file);
 
