@@ -13,7 +13,7 @@ foreach ($_POST as $key => $value) {
     $req.= "&$key=$value";
 }
 
-$file = fopen("/srv/www/avocatcampusinternational/accueil-test/tuto/paiement/retour.log", "a");
+$file = fopen("/tuto/paiement/retour.log", "a");
 fwrite($file,"AVANT curl_init"."\r\n");
 fclose($file);
 
@@ -27,7 +27,7 @@ curl_setopt($fp, CURLOPT_SSL_VERIFYHOST, 2);
 curl_setopt($fp, CURLOPT_FORBID_REUSE, 1);
 curl_setopt($fp, CURLOPT_HTTPHEADER, array('Connection: Close'));
 
-$file = fopen("/srv/www/avocatcampusinternational/accueil-test/tuto/paiement/retour.log", "a");
+$file = fopen("/tuto/paiement/retour.log", "a");
 fwrite($file,"AVANT IF"."\r\n");
 fclose($file);
 
@@ -39,13 +39,13 @@ curl_close($fp);
 // Le paiement est validé
 if (strcmp(trim($res), "VERIFIED") == 0) {
 
-    $file = fopen("/srv/www/avocatcampusinternational/accueil-test/tuto/paiement/retour.log", "a");
+    $file = fopen("/tuto/paiement/retour.log", "a");
     fwrite($file,"VERIFIED"."\r\n");
     fclose($file);
    
 } else {
 
-     $file = fopen("/srv/www/avocatcampusinternational/accueil-test/tuto/paiement/retour.log", "a");
+     $file = fopen("/paiement/retour.log", "a");
     fwrite($file,"email"."\r\n");
     fclose($file);
     // Le paiement est invalide, envoi d'un mail au vendeur
